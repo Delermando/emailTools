@@ -1,6 +1,6 @@
 <?php
 class emailTools{
-    public function restreamentoEmail(){
+    public function rastreamentoEmail(){
         $protocolo = strtolower(preg_replace('/[^a-zA-Z]/','',$_SERVER['SERVER_PROTOCOL']));
         $location = $protocolo.'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $hash = md5(rand());

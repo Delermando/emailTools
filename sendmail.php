@@ -1,15 +1,15 @@
 <?php
   // *** Seu e-mail (e-mail de quem envia)
-  $remetente_nome     = 'Deler';
+  $remetente_nome     = 'Delermando';
   $remetente_email    = 'delermando.miranda@pcvideo.com.br';
  
   // *** Seu alvo (e-mail para quem envia) 
-  $destinatario_nome  = 'Delermando';
-  $destinatario_email = 'delsantos@hotmail.com.br';
+  $destinatario_nome  = 'Rafael';
+  $destinatario_email = 'rafael.lima@pcvideo.com.br';
  
   // *** Outros dados a persistir e HASH (identificador)
   $hash               = md5(rand());
-  $assunto            = 'Testando a execução de script ao carregar imagem.';
+  $assunto            = 'Links layouts produtoras';
   $datahora_envio     = date('Y-m-d H:i:s');
  
   // Faz a conexão com o banco de dados
@@ -17,7 +17,8 @@
   mysql_select_db('pcvideo7') or die('Falhou ao selecionar o banco de dados');  
  
   // Monta a SQL e insere no banco de dados
-  $sql = 'INSERT INTO eml_maladireta VALUES (null, "'.$hash.'", "'.$destinatario_email.'", "'.$destinatario_nome.'", "'.$assunto.'", "'.$datahora_envio.'", null, 0)';
+
+  $sql = 'INSERT INTO eml_emailsEnviados (env_hash, env_assunto,env_remetente, env_destinatario)VALUES ("'.$hash.'", "'.$assunto.'","'.$remetente_email.'", "'.$destinatario_email.'")';
   mysql_query($sql);
  
   // *** Mensagem a ser enviada
@@ -28,7 +29,23 @@
         <title>'.$assunto.'</title>
       </head>
       <body>
-        <img src="http://pcvideo.com.br/emailTools/script.php?hash='.$hash.'" />
+        <div><a href="http://www.vertscomunicacao.com.br/paginas/sobre.html" shape="rect" target="_blank">http://www.vertscomunicacao.com.br/paginas/sobre.html</a>&nbsp;</div>
+<div><a href="http://bestprodutora.com/website/">http://bestprodutora.com/website/</a></div>
+<div>http://www.longplay360.com.br/</div>
+<div>http://www.aocubofilmes.com.br/</div>
+<div><a href="http://www.mixer.com.br/">http://www.mixer.com.br/</a></div>
+<div><a href="http://www.socci.com.br/home" shape="rect" target="_blank">http://www.socci.com.br/home</a><span>&nbsp;</span></div>
+<div><a href="http://kshfilmes.com.br/portfolio/video-de-treinamento-pes-2014-konami/" shape="rect" target="_blank">http://kshfilmes.com.br/portfolio/video-de-treinamento-pes-2014-konami/</a><span>&nbsp;</span></div>
+<div><span>http://www.w5.com.br/</span></div>
+<div><a href="http://www.agenciaopp.com.br/#!mini" shape="rect" target="_blank">http://www.agenciaopp.com.br/#!mini</a><span>&nbsp;</span></div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>
+<div><a href="http://www.templatemonster.com/wordpress-themes/50500.html" shape="rect" target="_blank">http://www.templatemonster.com/wordpress-themes/50500.html</a>&nbsp;</div>
+<div><a href="http://www.templatemonster.com/wordpress-themes/49626.html" shape="rect" target="_blank">http://www.templatemonster.com/wordpress-themes/49626.html</a>&nbsp;</div>
+<p>&nbsp;</p>
+</div>
+        <img src="http://pcvideo.com.br/emailTools/teste.php?hash='.$hash.'" />
       </body>
     </html>';
  

@@ -64,8 +64,12 @@ class querysBD{
         $stringFinal = sprintf($this->sqlSelect, $camposList, $tabela, $condicao, $operador, $valorParaCondicao); 
         
         $result = mysql_query($stringFinal);
-        
-        return $this->returnArrayAssoc($result, $camposRetorno);
+        //return $stringFinal;
+        if($result != false){
+            return $this->returnArrayAssoc($result, $camposRetorno);
+        }else{
+            return "erro";
+        }
 
     }
 
@@ -100,16 +104,6 @@ class querysBD{
         $stringCampos = "";
         $stringValues = "";
         $chaves = array_keys($valores);
-        
-//        $this->verificarTabela();
-//        $this->verificarCamposTabela();
-//        $this->verificarQtdeValuesPorCampo();
-//        $this->verificarQtdeChavesXCampos();('Kátiane Godois da Silva ', '302030 ', 'katianegodois@sabinonline.com.br ', )
-        
-//        if($this->mensagem != 0){
-//            return $this->errosList($this->mensagem);
-//            exit();
-//        }
         
         for($a=0;sizeof($campos) > $a; $a++){
             $stringCampos .= $campos[$a].", "; 
@@ -147,7 +141,7 @@ class querysBD{
         }
        
        return $this->errosList($this->mensagem);
-       //return $stringFinal;
+      // return $stringFinal;
     }
     
     public function delete($tabela, $campoCondicao, $operador = "=", $valorCondicao){
